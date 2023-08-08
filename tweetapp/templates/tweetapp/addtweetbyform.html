@@ -1,0 +1,46 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+
+<style>
+    .bodydiv{
+        background-color: whitesmoke;
+        margin: 20px;
+        padding: 20px;
+        border-radius: 8px;
+
+    }
+    h1{
+        background-color:Whitesmoke;
+        margin: 20px;
+        padding: 20px;
+        border-radius: 8px;
+
+    }
+    
+</style>
+
+<h1>Add Tweet By Form</h1>
+
+<div class="bodydiv">
+    <div class="tweetform">
+    <form action="" method="POST">
+      {% csrf_token %}
+      {% for fields in form %}
+        <div class="mb-3">
+            {{fields.label_tag}}
+            <br>
+            <div class="form-control">
+                {{fields}}
+            </div>
+            
+            
+        </div>
+      {% endfor %}
+      <button type="submit" class="btn btn-dark">Send Tweet</button>
+    </form>
+    </div>
+
+</div>
+
+{% endblock content %}

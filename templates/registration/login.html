@@ -1,0 +1,56 @@
+{% extends 'base.html' %}
+{% block content %}
+<style>
+  .bodydiv{
+    background-color: whitesmoke;
+    margin: 20px;
+    padding: 20px;
+    border-radius: 8px;
+
+}  
+.logo{
+    margin: 5px;
+}
+</style>
+<div class="container">
+
+<div class="bodydiv">
+    {% if form.error %}
+    <div class="alert alert-dark" role="alert">
+        Your password or username didn't match please try again.
+    </div>
+    {% endif %}
+        
+
+    {% if user.is_authenticated%}
+        <h2>Welcome {{user.username}}</h2>
+
+    {% else %}
+            <form method="POST" action="{% url 'login' %}">
+                <div class="container">
+                <img class="logo" src="https://sguru.org/wp-content/uploads/2018/02/twitter-circled.png" alt="tweetapplogo" width="80" height="80"> <a style="font-size:33;">Tweet App</a>
+                <h4 class="mb-3">Please sign in</h4>
+                {% csrf_token %}
+                
+                {% for field in form %}
+                   <div class="mb-3"> 
+                        {{field.label_tag}}
+                        <br>
+                        {{field}}
+                        <br>
+                    </div>
+                {% endfor %}
+            
+           
+            <button type="submit" class="btn btn-dark" >Login</button>
+        </div>
+        </form>
+    {% endif %}
+
+
+   
+
+    
+     </div>
+    </div>
+{% endblock content %}

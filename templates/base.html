@@ -1,0 +1,106 @@
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm" crossorigin="anonymous"></script>
+    <!--<link rel="stylesheet" href="{% static 'tweetapp/customform.css' %}">-->
+    
+    <title>Tweet App</title>
+    <style>
+        nav{
+            margin-bottom: 10px;
+        }
+        footer{
+            position: absolute;
+            margin-top: 10px;
+            bottom: 0;
+            width: 100%;
+            height:60px;
+        }
+        .container {
+            position: relative;
+            width: auto;
+            max-width: 680px;
+            padding: 0 15px;
+          }
+
+        html{
+            min-height:100%;
+            position: relative;
+        }
+
+        body {
+            background-image: url('https://sguru.org/wp-content/uploads/2018/02/twitter-circled.png');
+            background-size: 20px 20px;
+            margin:0 0 60px 0;
+            padding:0;
+        }
+        
+    </style>
+</head>
+<body>
+
+       <nav class="navbar navbar-expand-lg bg-body-tertiary">
+        <div class="container-fluid">
+          <a class="navbar-brand"><img src="https://sguru.org/wp-content/uploads/2018/02/twitter-circled.png" alt="tweetapplogo" width="40" height="40"> Tweet App </a> 
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+              <li class="nav-item">
+                <a class="nav-link active" aria-current="page" href="{% url 'tweetapp:listtweet' %}">Home</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="{% url 'tweetapp:addtweet' %}">Add Tweet</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="{% url 'tweetapp:signup' %}">SignUp</a>
+              </li>
+              
+              
+              <!--<li class="nav-item">
+                <a class="nav-link" href="{#{% url 'tweetapp:addtweetbyform' %}#}">Add Tweet By Form</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="{#{% url 'tweetapp:addtweetbymodelform' %}#}">Add Tweet By ModelForm</a>
+              </li>-->
+              <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                  More
+                </a>
+                <ul class="dropdown-menu">
+                  
+                  <li><a class="dropdown-item" href="{% url 'login' %}">Login</a></li>
+                  <li><hr class="dropdown-divider"></li>
+                  <li><a class="dropdown-item" href="{% url 'logout' %}?next=/">LogOut</a></li>
+                </ul>
+              </li>
+            </ul>
+            <form class="d-flex" role="search">
+              <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+              <button type="button" class="btn btn-dark">Search</button>
+            </form>
+          </div>
+        </div>
+      </nav>
+      
+    <footer class="footer mt-auto py-3 bg-body-tertiary">
+            <div class="container" >
+                <span class="text-body-secondary">Programmed by Mahsa Omidvar</span>
+            </div>
+    </footer>
+    
+
+
+    {% block content %}
+
+    {% endblock content %}
+    
+    
+    
+    
+</body>
+</html>

@@ -1,0 +1,46 @@
+{% extends 'base.html' %}
+{% block content %}
+<style>
+  .bodydiv{
+    background-color: whitesmoke;
+    margin: 20px;
+    padding: 20px;
+    border-radius: 8px;
+
+}  
+.logo{
+    margin: 5px;
+}
+</style>
+<div class="container">
+
+<div class="bodydiv">
+    
+            <form method="POST" action="">
+                {% csrf_token %}
+                <div class="container">
+                <img class="logo" src="https://sguru.org/wp-content/uploads/2018/02/twitter-circled.png" alt="tweetapplogo" width="80" height="80"> <a style="font-size:33;">Tweet App</a>
+                <h4 class="mb-3">Please sign up</h4>
+                
+                {% for field in form %}
+                   <div class="mb-3"> 
+                        {{field.label_tag}}
+                        <br>
+                        {{field}}
+                        <br>
+                    </div>
+                {% endfor %}
+            
+           
+            <button type="submit" class="btn btn-dark" value="signup">SignUp</button>
+        </div>
+        </form>
+ 
+
+
+   
+
+    
+     </div>
+    </div>
+{% endblock content %}
